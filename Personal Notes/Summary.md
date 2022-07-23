@@ -1,6 +1,10 @@
 # Personal Notes
 
-## Build dashboards
+A short and informal Elasticsearch doc created as a summary. Built during the learning process. So, it helps to consolidate the Elasticsearch knowledge by taking notes while learning.
+
+It will be useful as a quick Elastichsearch recap after completing the course.
+
+### Build dashboards
 
 - System Administration
 - Developers
@@ -34,19 +38,20 @@ An index groups documents together logically, as well as provide configuration o
 
 ## Elastic requests syntax
 
-- <http_verb> /<_api>/<command>
+- *http_verb* /*_api*/*command*
 
 ### For example
-- GET /_cluster/health
 
-- <_api> specifies the API that we want to access.
-- Using _cat as <_api> value it means it is a CAT API, which outputs data into a human readable format
+    GET /_cluster/health
+
+- *_api* specifies the API that we want to access.
+- Using *_cat* as *_api* value it means it is a **CAT API**, which outputs data into a human readable format
 - APIs begins with an underscore by convetion.
-- <command> specifies the command
+- *command* specifies the command to execute
 
 ### System indices
 
-GET /_cat/indices?v&expand_wildcards=all
+    GET /_cat/indices?v&expand_wildcards=all
 
 - System indices starts with "." (it means will be hidden by default, like in Linux filesystem), for instance: .geoip_databases, .tasks, etc.
 
@@ -54,7 +59,7 @@ GET /_cat/indices?v&expand_wildcards=all
 
     curl -u elastic:59a5Ezy5VCv2666acRLuMJ2i -X GET -H "Content-Type:application/json" https://complete-guide-to-elasticsearch-65bc2f.es.us-central1.gcp.cloud.es.io/products/_search -d '{ "query": { "match_all": {} } }'
 
-**NOTES:** For local deployments, specify either --insecure or --cacert
+**NOTES** For local deployments, specify either --insecure or --cacert
 
 ## Sharding and scalability
 
@@ -64,6 +69,7 @@ GET /_cat/indices?v&expand_wildcards=all
 * The main purpose is to horizontally scale the data volume
 
 ### A bit deeper...
+
 - A shard is kind of an independent index
 - Each shard is an Apache Lucene index
 - An Ealsticsearch index consists of one or more Lucene indices
@@ -75,6 +81,4 @@ GET /_cat/indices?v&expand_wildcards=all
 - An index contains a single shard by default
 - Indices in Elasticsearch < 7.0.0 were created with five shards
 
-
-
-
+*(in progress...)*
